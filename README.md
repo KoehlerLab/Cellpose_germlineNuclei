@@ -13,7 +13,7 @@ The `Cellpose_germlineNuclei` data processing and cellpose model are
 The `Cellpose_germlineNuclei` model is installed automatically by
     selecting the model in Cell-ACDC (see below). The model can also be
     installed manually by `Add custom model... > I have the
-    model, let me select it` and choosing the `acdcSegment.py` file of the
+    model, let me select it` and choosing the `acdcSegment.py` file of
     the `Cellpose_germlineNuclei` model.
 
 Alternatively, the python script may be integrated into other custom
