@@ -1,34 +1,33 @@
 import os
-import pathlib
 import numpy as np
 
 from skimage.measure import label as skiLabel
 import math
-import cv2
-import skimage
 import scipy
 import scipy.ndimage
-import cellpose
 
 import skimage.exposure
 import skimage.filters
 import skimage.measure
 
 from cellpose import models
-from cellacdc import printl
-from cellacdc.models import CELLPOSE_MODELS
+from cellacdc import user_profile_path
 
-class AvailableModels:
-    values = CELLPOSE_MODELS
-
+default_model_path = os.path.join(
+    user_profile_path, 
+    'acdc-Cellpose_germlineNuclei', 
+    'cellpose_germlineNuclei_2023'
+)
 
 class Model:
-    def __init__(self, model_name='cellpose_germlineNuclei_2023', gpu=False):
-        script_path = os.path.abspath(__file__)
-        model_path = os.path.join(os.path.dirname(script_path), model_name)
+    def __init__(
+            self, 
+            model_path: os.PathLike=default_model_path, 
+            gpu=False
+        ):
         self.model = models.CellposeModel(
-                gpu=gpu, diam_mean=30, pretrained_model=model_path
-            )
+            gpu=gpu, diam_mean=30, pretrained_model=model_path
+        )
        
     def setupLogger(self, logger):
         models.models_logger = logger
@@ -114,12 +113,8 @@ class Model:
                 
         Returns
         -----
-        _type_
-            _description_
-        
-        Raises
-        ------
-        TypeError
+        np.ndarray
+            Instance segmentation array with the same shape as the input image.
         """
 
 
