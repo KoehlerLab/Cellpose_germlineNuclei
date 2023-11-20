@@ -14,7 +14,9 @@ The `Cellpose_germlineNuclei` model is installed automatically by
     selecting the model in Cell-ACDC (see below). The model can also be
     installed manually by `Add custom model... > I have the
     model, let me select it` and choosing the `acdcSegment.py` file of
-    the `Cellpose_germlineNuclei` model.
+    the `Cellpose_germlineNuclei` model. If automatic download of the model fails, 
+    please manually download the weights file from [here](https://github.com/KoehlerLab/Cellpose_germlineNuclei/blob/main/Cellpose_germlineNuclei/cellpose_germlineNuclei_2023) 
+    and provide its path at the `Model path` parameter (see below). 
 
 Alternatively, the python script may be integrated into other custom
     image analysis pipelines.
